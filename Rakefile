@@ -4,7 +4,7 @@ namespace :db do
 
   namespace :migrate do
     Sequel.extension :migration
-    DB = Sequel.connect(ENV['DATABASE_URL'] || 'postgres://localhost/descartes')
+    DB = Sequel.connect(ENV['DATABASE_URL'] || 'mysql://localhost/descartes')
 
     desc "Perform migration reset (full erase and migration up)"
     task :reset do

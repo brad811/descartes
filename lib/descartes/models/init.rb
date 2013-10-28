@@ -2,7 +2,7 @@ require 'sequel'
 require 'securerandom'
 require 'json'
 
-db = ENV['DATABASE_URL'] || 'postgres://localhost/descartes'
+db = ENV['DATABASE_URL'] || 'mysql://localhost/descartes'
 Sequel.connect(db)
 
 $LOAD_PATH.unshift File.dirname(__FILE__)

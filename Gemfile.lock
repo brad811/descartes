@@ -41,7 +41,6 @@ GEM
     openid-redis-store (0.0.2)
       redis
       ruby-openid
-    pg (0.14.1)
     pry (0.9.10)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -108,7 +107,6 @@ DEPENDENCIES
   omniauth
   omniauth-google-apps
   openid-redis-store
-  pg
   pry
   rack-canonical-host
   rack-ssl-enforcer

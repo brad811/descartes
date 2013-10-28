@@ -21,11 +21,11 @@ Design, build and deploy a dashboard that allows users to correlate multiple met
 
 ## Deployment
 
-Descartes stores configuration data in PostgreSQL and Google OpenID state in Redis. It is assumed you have local PostgreSQL and Redis servers running for local development.
+Descartes stores configuration data in MySQL and Google OpenID state in Redis. It is assumed you have local MySQL and Redis servers running for local development.
 
 ### Service Dependencies
 
-* PostgreSQL
+* MySQL
 * Redis
 
 ### Options
@@ -109,25 +109,6 @@ $ $EDITOR .env
 $ bundle exec rake db:migrate:up
 $ foreman start
 $ open http://127.0.0.1:5000
-```
-
-### Heroku
-
-```bash
-$ export DEPLOY=production/staging/you
-$ heroku create -r $DEPLOY -s cedar
-$ heroku addons:add redistogo -r $DEPLOY
-$ heroku addons:add heroku-postgresql:dev -r $DEPLOY
-$ heroku config:set -r $DEPLOY OAUTH_PROVIDER=...
-$ heroku config:set -r $DEPLOY <auth provider tokens>=...
-$ heroku config:set -r $DEPLOY GRAPHITE_URL=...
-$ heroku config:set -r $DEPLOY METRICS_UPDATE_INTERVAL=1h
-$ heroku config:set -r $DEPLOY SESSION_SECRET...
-$ heroku config:set -r $DEPLOY RAKE_ENV=production
-$ git push $DEPLOY master
-$ heroku run -r $DEPLOY bundle exec rake db:migrate:up
-$ heroku scale -r $DEPLOY web=1
-$ heroku open -r $DEPLOY
 ```
 
 ## Upgrades
