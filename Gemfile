@@ -5,6 +5,7 @@ ruby "1.9.3"
 gem "rake"
 gem "sinatra", "1.3.1"
 gem "thin", "1.5.1"
+gem "mysql"
 gem "sequel"
 gem "omniauth"
 gem 'omniauth-google-apps'
