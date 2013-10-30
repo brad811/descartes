@@ -12,7 +12,7 @@ Sequel.migration do
   end
 
   down do
-    drop_table(:comments)
+    drop_table?(:comments)
   end
 end
 

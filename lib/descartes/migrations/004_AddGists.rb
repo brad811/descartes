@@ -19,7 +19,7 @@ Sequel.migration do
   end
 
   down do
-    drop_table(:gists)
+    drop_table?(:gists)
   end
 end
 

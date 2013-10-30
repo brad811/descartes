@@ -8,7 +8,7 @@ Sequel.migration do
   end
 
   down do
-    drop_table(:metric_cache_status)
+    drop_table?(:metric_cache_status)
   end
 end
 
