@@ -27,9 +27,9 @@ class Metric
     request = RestClient::Resource.new("#{u.to_s}/metrics/index.json", :timeout => -1)
     response = request.get
     @@paths = JSON.parse(response)
-    MetricCacheStatus.update(:updated_at => Sequel.function(:NOW))
+    # MetricCacheStatus.update(:updated_at => Sequel.function(:NOW))
   end
 end
 
-class MetricCacheStatus < Sequel::Model(:metric_cache_status)
-end
+# class MetricCacheStatus < Sequel::Model(:metric_cache_status)
+# end
