@@ -6,7 +6,7 @@ gem "rake"
 gem "sinatra", "1.3.1"
 gem "thin", "1.5.1"
 gem "mysql"
-gem "sequel"
+gem "sequel", "3.48.0"
 gem "omniauth"
 gem 'omniauth-google-apps'
 gem "sinatra_auth_github", "0.13.3"
