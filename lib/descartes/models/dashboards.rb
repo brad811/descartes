@@ -54,7 +54,7 @@ class Dashboard < Sequel::Model
   end
 
   def self.get_dashboards_with_graphs
-    Dashboard.select('dashboards.*'.lit, 'COUNT(graph_dashboard_relations.*) AS graph_count'.lit).
+    Dashboard.select('dashboards.*'.lit, 'COUNT(graph_dashboard_relations.id) AS graph_count'.lit).
       from(:dashboards, :graph_dashboard_relations).
       where(:dashboards__enabled => true).
       where(:dashboards__id => :graph_dashboard_relations__dashboard_id).
@@ -71,7 +71,7 @@ class Dashboard < Sequel::Model
   end
 
   def self.get_favorite_dashboards_with_graphs_by_user(uid)
-    Dashboard.select('dashboards.*'.lit, 'COUNT(graph_dashboard_relations.*) AS graph_count'.lit).
+    Dashboard.select('dashboards.*'.lit, 'COUNT(graph_dashboard_relations.id) AS graph_count'.lit).
       from(:dashboards, :graph_dashboard_relations).
       where(:dashboards__enabled => true).
       where(:dashboards__id => :graph_dashboard_relations__dashboard_id).
@@ -92,7 +92,7 @@ class Dashboard < Sequel::Model
     dashboards = []
     matching_dashboards = []
     params.split(',').each do |search|
-      matching_dashboards << Dashboard.select('dashboards.*'.lit, 'COUNT(graph_dashboard_relations.*) AS graph_count'.lit).
+      matching_dashboards << Dashboard.select('dashboards.*'.lit, 'COUNT(graph_dashboard_relations.id) AS graph_count'.lit).
         from(:dashboards, :graph_dashboard_relations).
         where(:dashboards__enabled => true).
         where(:dashboards__id => :graph_dashboard_relations__dashboard_id).
