@@ -1,5 +1,7 @@
 body {
   padding-top: 60px;
+  color: #ddd;
+  background-color: #000;
 }
 
 .reset-search.icon-remove-circle {
