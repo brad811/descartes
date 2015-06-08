@@ -1,0 +1,32 @@
+{
+    "name": "Descartes",
+    "description": "Introspective dashboard for Graphite",
+    "website": "https://github.com/obfuscurity/descartes",
+    "repository": "https://github.com/obfuscurity/descartes",
+    "logo": "https://raw.githubusercontent.com/obfuscurity/descartes/master/lib/descartes/public/img/descartes-logo.png",
+    "success_url": "/",
+    "scripts": {
+    },
+    "keywords": [
+        "graphite",
+        "dashboard",
+        "monitoring",
+        "devops"
+    ],
+    "scripts": {
+        "postdeploy": "bundle exec rake db:migrate:up"
+    },
+    "addons": [
+        "redistogo",
+        "heroku-postgresql"
+    ],
+    "env": {
+        "OAUTH_PROVIDER": "google",
+        "GOOGLE_OAUTH_DOMAIN": "change-me.com",
+        "GRAPHITE_URL": "http://graphite.change-me.com",
+        "METRICS_UPDATE_INTERVAL": "15min",
+        "METRICS_UPDATE_ON_BOOT": "false",
+        "SESSION_SECRET": "foobar",
+        "RAKE_ENV": "production"
+    }
+}

@@ -2,8 +2,9 @@ source "http://rubygems.org"
 
 ruby "1.9.3"
 
+gem "bundler"
 gem "rake"
-gem "sinatra", "1.3.1"
+gem "sinatra", "1.4.4"
 gem "thin", "1.5.1"
 gem "mysql"
 gem "sequel", "3.48.0"
@@ -19,6 +20,7 @@ gem "json"
 gem "rspec"
 gem "rufus-scheduler"
 gem "nokogiri"
+gem "dotenv"
 
 group :development do
   gem "foreman"

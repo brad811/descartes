@@ -3,7 +3,9 @@ require 'securerandom'
 require 'json'
 
 db = ENV['DATABASE_URL'] || 'mysql://localhost/descartes'
-Sequel.connect(db)
+
+DB = Sequel.connect(db)
+DB.extension :pagination
 
 $LOAD_PATH.unshift File.dirname(__FILE__)
 require 'graphs'
@@ -16,7 +18,7 @@ require 'metrics'
 require 'users'
 
 Sequel.extension :core_extensions
-Sequel.extension :pagination
+
 Sequel::Model.plugin :json_serializer
 Graph.plugin :json_serializer
 Dashboard.plugin :json_serializer

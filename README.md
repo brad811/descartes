@@ -1,5 +1,7 @@
 # Descartes
 
+[![Build Status](https://secure.travis-ci.org/obfuscurity/descartes.png)](http://travis-ci.org/obfuscurity/descartes)
+
 ![dashboard](https://github.com/obfuscurity/descartes/raw/master/lib/descartes/public/img/descartes.png "Descartes")
 
 ## Purpose
@@ -110,6 +112,29 @@ $ bundle exec rake db:migrate:up
 $ foreman start
 $ open http://127.0.0.1:5000
 ```
+
+### Heroku - The Old Way
+
+```bash
+$ export DEPLOY=production/staging/you
+$ heroku create -r $DEPLOY -s cedar
+$ heroku addons:add redistogo -r $DEPLOY
+$ heroku addons:add heroku-postgresql:dev -r $DEPLOY
+$ heroku config:set -r $DEPLOY OAUTH_PROVIDER=...
+$ heroku config:set -r $DEPLOY <auth provider tokens>=...
+$ heroku config:set -r $DEPLOY GRAPHITE_URL=...
+$ heroku config:set -r $DEPLOY METRICS_UPDATE_INTERVAL=1h
+$ heroku config:set -r $DEPLOY SESSION_SECRET...
+$ heroku config:set -r $DEPLOY RAKE_ENV=production
+$ git push $DEPLOY master
+$ heroku run -r $DEPLOY bundle exec rake db:migrate:up
+$ heroku scale -r $DEPLOY web=1
+$ heroku open -r $DEPLOY
+```
+
+### Heroku - The Easy Way
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/obfuscurity/descartes)
 
 ## Upgrades
 

@@ -19,7 +19,8 @@ class Metric
 
   def self.update
     u = URI.parse(ENV['GRAPHITE_URL'])
-    if (!ENV['GRAPHITE_USER'].empty? && !ENV['GRAPHITE_PASS'].empty?)
+    if (ENV.has_key?('GRAPHITE_USER') && !ENV['GRAPHITE_USER'].empty? &&
+        ENV.has_key?('GRAPHITE_PASS') && !ENV['GRAPHITE_PASS'].empty?)
       u.user = ENV['GRAPHITE_USER']
       u.password = CGI.escape(ENV['GRAPHITE_PASS'])
     end
@@ -27,7 +28,8 @@ class Metric
     request = RestClient::Resource.new("#{u.to_s}/metrics/index.json", :timeout => -1)
     response = request.get
     @@paths = JSON.parse(response)
-    # MetricCacheStatus.update(:updated_at => Sequel.function(:NOW))
+
+    MetricCacheStatus.dataset.update(:updated_at => Sequel.function(:NOW))
   end
 end
 
