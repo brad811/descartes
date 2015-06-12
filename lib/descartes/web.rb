@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'rack-ssl-enforcer'
-require 'omniauth-google-apps'
+require 'omniauth-google-oauth2'
 require 'openid_redis_store'
 require 'rest-client'
 require 'redis'
