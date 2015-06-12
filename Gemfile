@@ -9,7 +9,7 @@ gem "thin", "1.5.1"
 gem "mysql"
 gem "sequel", "3.48.0"
 gem "omniauth"
-gem 'omniauth-google-apps'
+gem 'omniauth-google-oauth2'
 gem "sinatra_auth_github", "0.13.3"
 gem "openid-redis-store"
 gem "rack-canonical-host"
