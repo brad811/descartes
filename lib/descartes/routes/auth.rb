@@ -8,5 +8,9 @@ module Descartes
     post '/auth/google/callback' do
       google_callback
     end
+
+    get '/auth/google/callback' do
+      google_callback
+    end
   end
 end

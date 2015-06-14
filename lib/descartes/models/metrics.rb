@@ -33,5 +33,5 @@ class Metric
   end
 end
 
-# class MetricCacheStatus < Sequel::Model(:metric_cache_status)
-# end
+class MetricCacheStatus < Sequel::Model(:metric_cache_status)
+end

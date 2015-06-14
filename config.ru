@@ -15,7 +15,7 @@ use Rack::Session::Cookie, :key => 'rack.session',
   :secret => (ENV['SESSION_SECRET'] || raise('missing SESSION_SECRET'))
 
 use OmniAuth::Builder do
-  provider :google_apps,
+  provider :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"],
     :store => OpenID::Store::Redis.new(Redis.connect(:url => ENV['REDISTOGO_URL']) ||
       OpenID::Store::Redis.new(Redis.connect(:url => 'redis://localhost:6379/1'))),
     :name => 'google',
